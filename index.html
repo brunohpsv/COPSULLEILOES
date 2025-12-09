@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COPSUL LEILÕES - Leilões Online com Segurança</title>
+    <title>COPSUL LEILÕES - Plataforma de Leilões Online</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         /* Reset e Estilos Gerais */
         * {
@@ -15,46 +15,50 @@
         }
         
         body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #1f2937;
             line-height: 1.6;
         }
         
-        h1, h2, h3, h4 {
+        h1, h2, h3, h4, h5 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
+            color: #111827;
         }
         
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
-        /* Paleta de Cores */
+        /* Paleta de Cores Profissional */
         :root {
-            --primary-blue: #1a2980;
-            --secondary-blue: #26d0ce;
-            --primary-yellow: #FFD700;
-            --secondary-yellow: #FFED4A;
-            --dark-yellow: #E6C300;
-            --light-bg: #f8f9fa;
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #2563eb;
+            --accent-blue: #3b82f6;
+            --primary-yellow: #d97706;
+            --secondary-yellow: #f59e0b;
+            --light-bg: #f9fafb;
             --white: #ffffff;
-            --dark-text: #333333;
-            --light-text: #666666;
+            --gray-light: #f3f4f6;
+            --gray-medium: #9ca3af;
+            --gray-dark: #4b5563;
+            --border-color: #e5e7eb;
         }
         
         /* Header */
         header {
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            color: var(--white);
-            padding: 15px 0;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            background-color: var(--white);
+            color: var(--primary-blue);
+            padding: 18px 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
         }
         
         .header-container {
@@ -66,222 +70,304 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         
-        .logo i {
-            font-size: 2rem;
-            color: var(--primary-yellow);
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background-color: var(--primary-blue);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
         }
         
-        .logo h1 {
-            font-size: 1.8rem;
+        .logo-text h1 {
+            font-size: 1.6rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
         }
         
-        .logo span {
+        .logo-text span {
             color: var(--primary-yellow);
+            font-weight: 800;
+        }
+        
+        .logo-text p {
+            font-size: 0.75rem;
+            color: var(--gray-dark);
+            letter-spacing: 0.3px;
         }
         
         nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 28px;
         }
         
         nav a {
-            color: var(--white);
+            color: var(--primary-blue);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
-            transition: color 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            transition: all 0.2s;
+            padding: 6px 0;
+            position: relative;
         }
         
         nav a:hover {
-            color: var(--primary-yellow);
+            color: var(--secondary-blue);
         }
         
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-blue);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Removido .header-buttons */
+        
         .btn {
-            padding: 10px 25px;
+            padding: 10px 22px;
             border-radius: 4px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
             border: none;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
         }
         
         .btn-primary {
-            background-color: var(--primary-yellow);
-            color: var(--primary-blue);
+            background-color: var(--primary-blue);
+            color: var(--white);
+            box-shadow: 0 2px 6px rgba(30, 58, 138, 0.2);
         }
         
         .btn-primary:hover {
-            background-color: var(--secondary-yellow);
+            background-color: var(--secondary-blue);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
         }
         
         .btn-secondary {
             background-color: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
         }
         
         .btn-secondary:hover {
-            background-color: var(--white);
-            color: var(--primary-blue);
-        }
-        
-        /* Slideshow Contínuo */
-        .slideshow-container {
-            position: relative;
-            max-width: 100%;
-            margin: 0 auto;
-            overflow: hidden;
-            height: 400px;
             background-color: var(--primary-blue);
-            border-radius: 0 0 10px 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .slideshow {
-            display: flex;
-            width: 400%;
-            height: 100%;
-            animation: slide 40s infinite linear;
-        }
-        
-        .slide {
-            width: 25%;
-            height: 100%;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             color: var(--white);
         }
         
-        .slide-content {
-            text-align: center;
-            padding: 20px;
-            max-width: 800px;
-            z-index: 2;
+        /* Hero Section - Carrossel */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1e40af 100%);
+            color: var(--white);
+            padding: 0;
+            margin-bottom: 40px;
+            border-radius: 0 0 8px 8px;
+            height: 500px;
+            position: relative;
+            overflow: hidden;
         }
         
-        .slide h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-        }
-        
-        .slide p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-        }
-        
-        .slide-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .carousel-container {
+            position: relative;
             width: 100%;
             height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0.7;
-            z-index: 1;
         }
         
-        .slide1 .slide-bg {
-            background: linear-gradient(rgba(26,41,128,0.8), rgba(38,208,206,0.8)), url('https://images.unsplash.com/photo-1571902943206-39c0b6e202ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+        .carousel-slides {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
         }
         
-        .slide2 .slide-bg {
-            background: linear-gradient(rgba(26,41,128,0.8), rgba(38,208,206,0.8)), url('https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 0 40px;
         }
         
-        .slide3 .slide-bg {
-            background: linear-gradient(rgba(26,41,128,0.8), rgba(38,208,206,0.8)), url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+        .slide-content {
+            flex: 1;
+            max-width: 600px;
         }
         
-        .slide4 .slide-bg {
-            background: linear-gradient(rgba(26,41,128,0.8), rgba(38,208,206,0.8)), url('https://images.unsplash.com/photo-1600431521340-491eca880813?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+        .slide-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            line-height: 1.2;
         }
         
-        @keyframes slide {
-            0% { transform: translateX(0); }
-            24% { transform: translateX(0); }
-            25% { transform: translateX(-25%); }
-            49% { transform: translateX(-25%); }
-            50% { transform: translateX(-50%); }
-            74% { transform: translateX(-50%); }
-            75% { transform: translateX(-75%); }
-            99% { transform: translateX(-75%); }
-            100% { transform: translateX(0); }
+        .slide-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .slide-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .slide-visual img {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .carousel-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+        
+        .carousel-indicators {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .indicator.active {
+            background-color: var(--primary-yellow);
+            transform: scale(1.2);
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 10;
+        }
+        
+        .carousel-nav button {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+        
+        .carousel-nav button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
         }
         
         /* Filtros */
         .filters-container {
             background-color: var(--white);
-            padding: 25px;
-            margin: 30px auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 30px;
+            margin: 40px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
         }
         
         .filters-container h2 {
             color: var(--primary-blue);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             font-size: 1.5rem;
             display: flex;
             align-items: center;
             gap: 10px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
         }
         
         .filters {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
+            align-items: end;
         }
         
         .filter-group {
-            flex: 1;
-            min-width: 200px;
+            display: flex;
+            flex-direction: column;
         }
         
         .filter-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            color: var(--light-text);
+            color: var(--gray-dark);
+            font-size: 0.9rem;
         }
         
         .filter-group select, .filter-group input {
             width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Open Sans', sans-serif;
+            padding: 12px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
             font-size: 0.95rem;
+            background-color: var(--white);
+            color: var(--gray-dark);
         }
         
         .filter-group select:focus, .filter-group input:focus {
             outline: none;
             border-color: var(--secondary-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
         
         .btn-filter {
             background-color: var(--primary-blue);
             color: var(--white);
             border: none;
-            align-self: flex-end;
-            padding: 12px 30px;
+            height: 46px;
+            font-weight: 600;
+            transition: all 0.3s;
         }
         
         .btn-filter:hover {
@@ -290,27 +376,30 @@
         
         /* Leilões */
         .auctions-container {
-            margin: 40px auto;
+            margin: 50px auto;
         }
         
-        .auctions-header {
+        .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
         }
         
-        .auctions-header h2 {
+        .section-header h2 {
             color: var(--primary-blue);
             font-size: 1.8rem;
         }
         
         .auction-count {
-            background-color: var(--secondary-blue);
+            background-color: var(--primary-blue);
             color: var(--white);
             padding: 8px 20px;
-            border-radius: 20px;
+            border-radius: 4px;
             font-weight: 600;
+            font-size: 0.9rem;
         }
         
         .auctions-grid {
@@ -321,20 +410,23 @@
         
         .auction-card {
             background-color: var(--white);
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 4px solid var(--primary-yellow);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
         }
         
         .auction-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            border-color: var(--accent-blue);
         }
         
         .auction-image {
-            height: 180px;
+            height: 200px;
             background-size: cover;
             background-position: center;
             position: relative;
@@ -344,31 +436,41 @@
             position: absolute;
             top: 15px;
             left: 15px;
-            background-color: rgba(26, 41, 128, 0.9);
+            background-color: rgba(30, 58, 138, 0.95);
             color: var(--white);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 0.75rem;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         
         .auction-info {
-            padding: 20px;
+            padding: 22px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .auction-title {
             font-size: 1.2rem;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             color: var(--primary-blue);
+            line-height: 1.4;
         }
         
         .auction-details {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            margin-bottom: 15px;
+            gap: 10px;
+            margin-bottom: 18px;
             font-size: 0.9rem;
-            color: var(--light-text);
+            color: var(--gray-dark);
+            flex-grow: 1;
         }
         
         .auction-detail {
@@ -378,25 +480,30 @@
         }
         
         .auction-detail i {
-            color: var(--secondary-blue);
-            width: 20px;
+            color: var(--accent-blue);
+            width: 16px;
+            text-align: center;
         }
         
-        .auction-time {
+        .auction-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 15px;
-            border-top: 1px solid #eee;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
         }
         
         .auction-time-remaining {
-            background-color: #fff8e1;
-            padding: 8px 15px;
-            border-radius: 5px;
+            background-color: #fff7ed;
+            padding: 8px 14px;
+            border-radius: 4px;
             font-weight: 600;
-            color: var(--dark-yellow);
+            color: var(--primary-yellow);
             font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         
         .auction-price {
@@ -409,9 +516,10 @@
         .register-section {
             margin: 60px auto;
             background-color: var(--white);
-            border-radius: 10px;
+            border-radius: 8px;
             padding: 40px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
         }
         
         .register-section h2 {
@@ -419,114 +527,155 @@
             font-size: 1.8rem;
             margin-bottom: 30px;
             text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
         }
         
         .register-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
         
         .step {
             text-align: center;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #f8fafc;
-            border: 1px solid #e2e8f0;
+            padding: 25px 20px;
+            border-radius: 8px;
+            background-color: var(--gray-light);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+        
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border-color: var(--accent-blue);
         }
         
         .step-icon {
             width: 60px;
             height: 60px;
             background-color: var(--primary-blue);
-            color: var(--primary-yellow);
-            border-radius: 50%;
+            color: var(--white);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 15px;
+            margin: 0 auto 20px;
             font-size: 1.5rem;
         }
         
         .step h3 {
             color: var(--primary-blue);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
         }
         
         .step p {
-            color: var(--light-text);
+            color: var(--gray-dark);
             font-size: 0.95rem;
+            line-height: 1.5;
         }
         
         /* Tabela de Taxas */
-        .fees-table {
+        .fees-table-container {
             margin-top: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         
-        .fees-table h3 {
-            color: var(--primary-blue);
-            margin-bottom: 20px;
+        .fees-table-container h3 {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 20px;
             text-align: center;
+            font-size: 1.3rem;
         }
         
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            background-color: var(--white);
         }
         
         th {
-            background-color: var(--primary-blue);
-            color: var(--white);
-            padding: 15px;
+            background-color: var(--gray-light);
+            color: var(--gray-dark);
+            padding: 18px 20px;
             text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border-color);
         }
         
         td {
-            padding: 15px;
-            border-bottom: 1px solid #e2e8f0;
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--gray-dark);
         }
         
-        tr:nth-child(even) {
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tr:hover {
             background-color: #f8fafc;
         }
         
         .highlight-cell {
-            background-color: #fff8e1;
+            background-color: #fef3c7;
             color: var(--primary-blue);
-            font-weight: 600;
+            font-weight: 700;
         }
         
         .register-cta {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .register-cta p {
+            margin-bottom: 25px;
+            color: var(--gray-dark);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         /* Footer */
         footer {
-            background-color: var(--primary-blue);
+            background-color: #111827;
             color: var(--white);
-            padding: 50px 0 20px;
-            margin-top: 60px;
+            padding: 60px 0 25px;
+            margin-top: 80px;
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
         
         .footer-section h3 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 20px;
-            color: var(--primary-yellow);
+            color: var(--secondary-yellow);
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         
         .footer-section p {
-            margin-bottom: 15px;
-            opacity: 0.9;
+            margin-bottom: 16px;
+            opacity: 0.8;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
         
         .footer-links {
@@ -534,25 +683,39 @@
         }
         
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         
         .footer-links a {
-            color: var(--white);
+            color: rgba(255,255,255,0.8);
             text-decoration: none;
-            opacity: 0.9;
-            transition: opacity 0.3s;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
         .footer-links a:hover {
-            opacity: 1;
-            color: var(--primary-yellow);
+            color: var(--secondary-yellow);
+            transform: translateX(3px);
+        }
+        
+        .contact-info p {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .contact-info i {
+            color: var(--secondary-yellow);
+            margin-top: 3px;
         }
         
         .social-icons {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 12px;
+            margin-top: 25px;
         }
         
         .social-icons a {
@@ -562,95 +725,126 @@
             width: 40px;
             height: 40px;
             background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
+            border-radius: 4px;
             color: var(--white);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             transition: all 0.3s;
         }
         
         .social-icons a:hover {
-            background-color: var(--primary-yellow);
-            color: var(--primary-blue);
+            background-color: var(--secondary-yellow);
+            color: #111827;
             transform: translateY(-3px);
         }
         
         .footer-bottom {
             text-align: center;
-            padding-top: 20px;
+            padding-top: 25px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
-            opacity: 0.8;
+            opacity: 0.7;
         }
         
         /* Responsividade */
+        @media (max-width: 992px) {
+            .hero-section {
+                height: auto;
+                min-height: 500px;
+            }
+            
+            .carousel-slide {
+                flex-direction: column;
+                padding: 60px 20px;
+                text-align: center;
+            }
+            
+            .slide-content h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
-                gap: 15px;
+                gap: 20px;
             }
             
             nav ul {
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 15px;
+                gap: 20px;
             }
             
-            .slideshow-container {
-                height: 300px;
-            }
-            
-            .slide h2 {
+            .slide-content h2 {
                 font-size: 1.8rem;
             }
             
-            .slide p {
+            .slide-content p {
                 font-size: 1rem;
             }
             
             .auctions-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             }
             
             .filters {
-                flex-direction: column;
+                grid-template-columns: 1fr;
             }
             
             .register-steps {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             
             .register-section {
                 padding: 25px;
             }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
         }
         
         @media (max-width: 480px) {
-            .slideshow-container {
-                height: 250px;
+            .hero-section {
+                padding: 0;
+                min-height: 400px;
             }
             
-            .slide h2 {
-                font-size: 1.5rem;
+            .carousel-slide {
+                padding: 40px 15px;
             }
             
-            .slide p {
-                font-size: 0.9rem;
+            .slide-content h2 {
+                font-size: 1.6rem;
+            }
+            
+            .slide-visual img {
+                max-height: 250px;
             }
             
             .auctions-grid {
                 grid-template-columns: 1fr;
             }
             
-            .logo h1 {
-                font-size: 1.5rem;
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
             }
             
-            table {
-                font-size: 0.85rem;
+            .auction-count {
+                align-self: flex-start;
             }
             
-            th, td {
-                padding: 10px;
+            .logo-text h1 {
+                font-size: 1.4rem;
+            }
+            
+            .carousel-nav button {
+                width: 40px;
+                height: 40px;
             }
         }
     </style>
@@ -660,62 +854,108 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <i class="fas fa-gavel"></i>
-                <h1>COPSUL <span>LEILÕES</span></h1>
+                <div class="logo-icon">
+                    <i class="fas fa-gavel"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>COPSUL <span>LEILÕES</span></h1>
+                    <p>Plataforma Oficial de Leilões Online</p>
+                </div>
             </div>
             
             <nav>
                 <ul>
                     <li><a href="#"><i class="fas fa-home"></i> Início</a></li>
                     <li><a href="#leiloes"><i class="fas fa-gavel"></i> Leilões</a></li>
-                    <li><a href="#como-funciona"><i class="fas fa-info-circle"></i> Como Funciona</a></li>
                     <li><a href="#cadastrar"><i class="fas fa-dollar-sign"></i> Vender</a></li>
+                    <li><a href="#como-funciona"><i class="fas fa-info-circle"></i> Como Funciona</a></li>
                     <li><a href="#contato"><i class="fas fa-phone-alt"></i> Contato</a></li>
                 </ul>
             </nav>
+            
+            <!-- Removidos os botões "Entrar" e "Cadastrar" -->
         </div>
     </header>
 
-    <!-- Slideshow -->
-    <div class="slideshow-container">
-        <div class="slideshow">
-            <div class="slide slide1">
-                <div class="slide-bg"></div>
-                <div class="slide-content">
-                    <h2>LEILÕES DE CARROS ONLINE</h2>
-                    <p>Compre ou venda seu veículo com segurança e garantia COPSUL</p>
-                    <button class="btn btn-primary">Ver Leilões de Carros</button>
+    <!-- Hero Section - Carrossel -->
+    <section class="hero-section">
+        <div class="carousel-container">
+            <div class="carousel-slides" id="carouselSlides">
+                <!-- Slide 1 -->
+                <div class="carousel-slide" style="background-color: #1e3a8a;">
+                    <div class="slide-content">
+                        <h2>Leilões Online com Segurança e Transparência</h2>
+                        <p>Conectamos compradores e vendedores em uma plataforma confiável, com processos transparentes e logística completa para todo o Brasil.</p>
+                        <button class="btn btn-primary">Explorar Leilões</button>
+                    </div>
+                    <div class="slide-visual">
+                        <img src="https://images.unsplash.com/photo-1571902943206-39c0b6e202ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Leilão Online">
+                    </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="carousel-slide" style="background-color: #1e40af;">
+                    <div class="slide-content">
+                        <h2>Produtos de Qualidade com Garantia</h2>
+                        <p>Todos os produtos passam por uma rigorosa avaliação técnica antes de entrarem em leilão. Qualidade e procedência garantidas.</p>
+                        <button class="btn btn-primary">Ver Avaliações</button>
+                    </div>
+                    <div class="slide-visual">
+                        <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Produtos Avaliados">
+                    </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="carousel-slide" style="background-color: #1e3a8a;">
+                    <div class="slide-content">
+                        <h2>Leilões em Tempo Real</h2>
+                        <p>Participe de leilões ao vivo e acompanhe as ofertas em tempo real. A plataforma mais dinâmica do mercado.</p>
+                        <button class="btn btn-primary">Participar de Leilões</button>
+                    </div>
+                    <div class="slide-visual">
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Leilão em Tempo Real">
+                    </div>
+                </div>
+                
+                <!-- Slide 4 -->
+                <div class="carousel-slide" style="background-color: #1e40af;">
+                    <div class="slide-content">
+                        <h2>Logística Nacional</h2>
+                        <p>Entregamos seu produto adquirido em leilão em qualquer lugar do Brasil. Parceria com as melhores transportadoras.</p>
+                        <button class="btn btn-primary">Saber Mais</button>
+                    </div>
+                    <div class="slide-visual">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Logística">
+                    </div>
+                </div>
+                
+                <!-- Slide 5 -->
+                <div class="carousel-slide" style="background-color: #1e3a8a;">
+                    <div class="slide-content">
+                        <h2>Venda seu Produto com Facilidade</h2>
+                        <p>Cadastre seu produto para leilão de forma simples e rápida. Nossa equipe cuida de toda a avaliação e divulgação.</p>
+                        <button class="btn btn-primary">Cadastrar Produto</button>
+                    </div>
+                    <div class="slide-visual">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Venda de Produtos">
+                    </div>
                 </div>
             </div>
             
-            <div class="slide slide2">
-                <div class="slide-bg"></div>
-                <div class="slide-content">
-                    <h2>ELETRÔNICOS EM LEILÃO</h2>
-                    <p>Smartphones, notebooks e eletrônicos com até 70% de desconto</p>
-                    <button class="btn btn-primary">Ver Eletrônicos</button>
-                </div>
+            <!-- Controles de Navegação -->
+            <div class="carousel-nav">
+                <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
             </div>
             
-            <div class="slide slide3">
-                <div class="slide-bg"></div>
-                <div class="slide-content">
-                    <h2>MÓVEIS E ELETRODOMÉSTICOS</h2>
-                    <p>Móveis usados e seminovos com qualidade garantida</p>
-                    <button class="btn btn-primary">Ver Móveis</button>
-                </div>
-            </div>
-            
-            <div class="slide slide4">
-                <div class="slide-bg"></div>
-                <div class="slide-content">
-                    <h2>VENDA COM SEGURANÇA</h2>
-                    <p>Nós cuidamos de tudo: fotos, descrição, pagamento e entrega</p>
-                    <button class="btn btn-primary">Quero Vender</button>
+            <!-- Indicadores -->
+            <div class="carousel-controls">
+                <div class="carousel-indicators" id="carouselIndicators">
+                    <!-- Indicadores serão gerados via JavaScript -->
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Filtros -->
     <div class="container">
@@ -767,13 +1007,13 @@
                     <input type="date" id="date">
                 </div>
                 
-                <button class="btn btn-filter">Filtrar</button>
+                <button class="btn btn-filter">Aplicar Filtros</button>
             </div>
         </div>
 
         <!-- Leilões -->
         <div class="auctions-container" id="leiloes">
-            <div class="auctions-header">
+            <div class="section-header">
                 <h2>Leilões em Destaque</h2>
                 <div class="auction-count">12 Leilões Ativos</div>
             </div>
@@ -821,10 +1061,8 @@
                 </div>
             </div>
             
-            <div class="fees-table">
+            <div class="fees-table-container">
                 <h3>Taxas de Cadastro por Valor Venal do Produto</h3>
-                <p style="text-align: center; margin-bottom: 20px; color: var(--light-text);">A taxa de cadastro é única e não reembolsável, independente do resultado do leilão.</p>
-                
                 <table>
                     <thead>
                         <tr>
@@ -866,11 +1104,11 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
                 
-                <div class="register-cta">
-                    <p style="margin-bottom: 20px; color: var(--light-text);">Para cadastrar seu produto, entre em contato conosco pelos canais abaixo ou visite nossa central de atendimento.</p>
-                    <button class="btn btn-primary">Entre em Contato para Cadastrar</button>
-                </div>
+            <div class="register-cta">
+                <p>Para cadastrar seu produto, entre em contato conosco pelos canais abaixo ou visite nossa central de atendimento. Nossa equipe está pronta para auxiliá-lo em todo o processo.</p>
+                <button class="btn btn-primary">Entre em Contato para Cadastrar</button>
             </div>
         </div>
     </div>
@@ -886,32 +1124,34 @@
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-section" id="como-funciona">
                     <h3>Links Rápidos</h3>
                     <ul class="footer-links">
-                        <li><a href="#como-funciona">Como Funciona</a></li>
-                        <li><a href="#cadastrar">Taxas e Comissões</a></li>
-                        <li><a href="#">Perguntas Frequentes</a></li>
-                        <li><a href="#">Política de Privacidade</a></li>
-                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Como Funciona</a></li>
+                        <li><a href="#cadastrar"><i class="fas fa-chevron-right"></i> Taxas e Comissões</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Perguntas Frequentes</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Política de Privacidade</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Termos de Uso</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Contato</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000 - São Paulo, SP</p>
-                    <p><i class="fas fa-phone"></i> (11) 99999-9999</p>
-                    <p><i class="fas fa-envelope"></i> contato@copsulleiloes.com.br</p>
-                    <p><i class="fas fa-clock"></i> Seg-Sex: 9h-18h</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000 - São Paulo, SP</p>
+                        <p><i class="fas fa-phone"></i> (11) 99999-9999</p>
+                        <p><i class="fas fa-envelope"></i> contato@copsulleiloes.com.br</p>
+                        <p><i class="fas fa-clock"></i> Seg-Sex: 9h-18h</p>
+                    </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 COPSUL LEILÕES. Todos os direitos reservados.</p>
+                <p>&copy; 2023 COPSUL LEILÕES. Todos os direitos reservados. CNPJ: 00.000.000/0000-00</p>
             </div>
         </div>
     </footer>
@@ -921,7 +1161,7 @@
         const auctions = [
             {
                 id: 1,
-                title: "Honda Civic 2018",
+                title: "Honda Civic 2018 EXL",
                 category: "carros",
                 city: "São Paulo",
                 state: "SP",
@@ -931,11 +1171,11 @@
                 endTime: "16:00",
                 currentPrice: 68500,
                 image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                description: "Honda Civic EXL 2018, branco, completo, único dono"
+                description: "Honda Civic EXL 2018, branco, completo, único dono, 45.000 km"
             },
             {
                 id: 2,
-                title: "iPhone 14 Pro Max",
+                title: "iPhone 14 Pro Max 256GB",
                 category: "eletronicos",
                 city: "Rio de Janeiro",
                 state: "RJ",
@@ -945,11 +1185,11 @@
                 endTime: "12:30",
                 currentPrice: 5200,
                 image: "https://images.unsplash.com/photo-1678911820848-5b5a4c8aade5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                description: "iPhone 14 Pro Max 256GB, roxo, em perfeito estado"
+                description: "iPhone 14 Pro Max 256GB, roxo, em perfeito estado, com nota fiscal"
             },
             {
                 id: 3,
-                title: "Sofá 3 Lugares",
+                title: "Sofá 3 Lugares em Couro",
                 category: "moveis",
                 city: "Belo Horizonte",
                 state: "MG",
@@ -959,11 +1199,11 @@
                 endTime: "11:00",
                 currentPrice: 1200,
                 image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                description: "Sofá 3 lugares em couro sintético, cor cinza"
+                description: "Sofá 3 lugares em couro sintético, cor cinza, pouco uso"
             },
             {
                 id: 4,
-                title: "Notebook Dell G15",
+                title: "Notebook Dell G15 Gamer",
                 category: "eletronicos",
                 city: "Curitiba",
                 state: "PR",
@@ -973,11 +1213,11 @@
                 endTime: "17:00",
                 currentPrice: 3800,
                 image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                description: "Notebook Gamer Dell G15, RTX 3050, 16GB RAM"
+                description: "Notebook Gamer Dell G15, RTX 3050, 16GB RAM, 512GB SSD"
             },
             {
                 id: 5,
-                title: "Fiat Toro 2020",
+                title: "Fiat Toro Freedom 2020",
                 category: "carros",
                 city: "Porto Alegre",
                 state: "RS",
@@ -987,11 +1227,11 @@
                 endTime: "13:00",
                 currentPrice: 89900,
                 image: "https://images.unsplash.com/photo-1550355291-bbee04a92027?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                description: "Fiat Toro Freedom 2020, diesel, 4x4, completo"
+                description: "Fiat Toro Freedom 2020, diesel, 4x4, completo, 35.000 km"
             },
             {
                 id: 6,
-                title: "Mesa de Jantar",
+                title: "Mesa de Jantar com 6 Cadeiras",
                 category: "moveis",
                 city: "Brasília",
                 state: "DF",
@@ -1001,11 +1241,11 @@
                 endTime: "15:00",
                 currentPrice: 850,
                 image: "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                description: "Mesa de jantar com 6 cadeiras, madeira maciça"
+                description: "Mesa de jantar com 6 cadeiras, madeira maciça, estilo moderno"
             },
             {
                 id: 7,
-                title: "PlayStation 5",
+                title: "PlayStation 5 + 3 Jogos",
                 category: "eletronicos",
                 city: "São Paulo",
                 state: "SP",
@@ -1015,11 +1255,11 @@
                 endTime: "18:00",
                 currentPrice: 3500,
                 image: "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                description: "PlayStation 5 com 2 controles e 3 jogos"
+                description: "PlayStation 5 com 2 controles e 3 jogos, 6 meses de uso"
             },
             {
                 id: 8,
-                title: "Geladeira Brastemp",
+                title: "Geladeira Brastemp Frost Free",
                 category: "eletronicos",
                 city: "Rio de Janeiro",
                 state: "RJ",
@@ -1029,7 +1269,7 @@
                 endTime: "12:00",
                 currentPrice: 2100,
                 image: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                description: "Geladeira Brastemp Frost Free, 375L, inox"
+                description: "Geladeira Brastemp Frost Free, 375L, inox, 1 ano de garantia"
             }
         ];
 
@@ -1081,28 +1321,24 @@
                 const auctionCard = document.createElement('div');
                 auctionCard.className = 'auction-card';
                 
-                // Determinar cor da categoria
-                let categoryColor = '#1a2980';
+                // Determinar ícone da categoria
                 let categoryIcon = 'fas fa-gavel';
                 
                 switch(auction.category) {
                     case 'carros':
-                        categoryColor = '#e53935';
                         categoryIcon = 'fas fa-car';
                         break;
                     case 'eletronicos':
-                        categoryColor = '#26d0ce';
                         categoryIcon = 'fas fa-laptop';
                         break;
                     case 'moveis':
-                        categoryColor = '#8e24aa';
                         categoryIcon = 'fas fa-couch';
                         break;
                 }
                 
                 auctionCard.innerHTML = `
                     <div class="auction-image" style="background-image: url('${auction.image}')">
-                        <div class="auction-category" style="background-color: ${categoryColor}">
+                        <div class="auction-category">
                             <i class="${categoryIcon}"></i> ${auction.category.toUpperCase()}
                         </div>
                     </div>
@@ -1122,7 +1358,7 @@
                                 <span>${auction.description}</span>
                             </div>
                         </div>
-                        <div class="auction-time">
+                        <div class="auction-footer">
                             <div class="auction-time-remaining">
                                 <i class="fas fa-clock"></i> ${getTimeRemaining(auction.endDate, auction.endTime)}
                             </div>
@@ -1163,8 +1399,96 @@
             renderAuctions(filtered);
         }
 
+        // Carrossel
+        class Carousel {
+            constructor() {
+                this.currentSlide = 0;
+                this.totalSlides = 5; // Temos 5 slides
+                this.slidesContainer = document.getElementById('carouselSlides');
+                this.indicatorsContainer = document.getElementById('carouselIndicators');
+                this.autoSlideInterval = null;
+                this.init();
+            }
+            
+            init() {
+                // Criar indicadores
+                for (let i = 0; i < this.totalSlides; i++) {
+                    const indicator = document.createElement('div');
+                    indicator.className = `indicator ${i === 0 ? 'active' : ''}`;
+                    indicator.addEventListener('click', () => this.goToSlide(i));
+                    this.indicatorsContainer.appendChild(indicator);
+                }
+                
+                // Adicionar eventos aos botões de navegação
+                document.getElementById('prevBtn').addEventListener('click', () => this.prevSlide());
+                document.getElementById('nextBtn').addEventListener('click', () => this.nextSlide());
+                
+                // Iniciar transição automática
+                this.startAutoSlide();
+                
+                // Pausar auto slide quando o mouse estiver sobre o carrossel
+                const carouselContainer = document.querySelector('.carousel-container');
+                carouselContainer.addEventListener('mouseenter', () => this.stopAutoSlide());
+                carouselContainer.addEventListener('mouseleave', () => this.startAutoSlide());
+            }
+            
+            goToSlide(index) {
+                this.currentSlide = index;
+                this.updateCarousel();
+            }
+            
+            prevSlide() {
+                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                this.updateCarousel();
+            }
+            
+            nextSlide() {
+                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+                this.updateCarousel();
+            }
+            
+            updateCarousel() {
+                // Atualizar posição dos slides
+                this.slidesContainer.style.transform = `translateX(-${this.currentSlide * 100}%)`;
+                
+                // Atualizar indicadores
+                const indicators = document.querySelectorAll('.indicator');
+                indicators.forEach((indicator, index) => {
+                    if (index === this.currentSlide) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+                
+                // Reiniciar o intervalo de auto slide
+                this.restartAutoSlide();
+            }
+            
+            startAutoSlide() {
+                this.autoSlideInterval = setInterval(() => {
+                    this.nextSlide();
+                }, 5000); // Mudar slide a cada 5 segundos
+            }
+            
+            stopAutoSlide() {
+                if (this.autoSlideInterval) {
+                    clearInterval(this.autoSlideInterval);
+                    this.autoSlideInterval = null;
+                }
+            }
+            
+            restartAutoSlide() {
+                this.stopAutoSlide();
+                this.startAutoSlide();
+            }
+        }
+
         // Inicializar a página
         document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar carrossel
+            const carousel = new Carousel();
+            
             // Renderizar leilões iniciais
             renderAuctions();
             
@@ -1175,7 +1499,7 @@
             document.getElementById('category').addEventListener('change', filterAuctions);
             document.getElementById('date').addEventListener('change', filterAuctions);
             
-            // Adicionar eventos aos botões
+            // Adicionar eventos aos botões principais
             document.querySelectorAll('.btn-primary').forEach(button => {
                 button.addEventListener('click', function() {
                     // Para o botão de contato na seção de cadastro
@@ -1183,21 +1507,12 @@
                         document.querySelector('footer').scrollIntoView({
                             behavior: 'smooth'
                         });
-                    } else {
-                        // Para outros botões
-                        const slideIndex = Array.from(this.closest('.slide-content').parentNode.parentNode.children).indexOf(this.closest('.slide'));
-                        const categories = ['carros', 'eletronicos', 'moveis', ''];
-                        const category = categories[slideIndex];
-                        
-                        if (category) {
-                            document.getElementById('category').value = category;
-                            filterAuctions();
-                            
-                            // Rolar até os leilões
-                            document.querySelector('.auctions-container').scrollIntoView({
-                                behavior: 'smooth'
-                            });
-                        }
+                    } else if (this.textContent.includes('Explorar')) {
+                        // Para botão Explorar Leilões
+                        document.querySelector('.auctions-container').scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
                     }
                 });
             });
@@ -1224,12 +1539,16 @@
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         window.scrollTo({
-                            top: targetElement.offsetTop - 80,
+                            top: targetElement.offsetTop - 100,
                             behavior: 'smooth'
                         });
                     }
                 });
             });
+            
+            // Adicionar data mínima para o campo de data
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('date').min = today;
         });
     </script>
 </body>
