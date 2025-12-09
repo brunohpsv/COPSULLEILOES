@@ -33,10 +33,23 @@
             padding: 0 15px;
         }
         
+        /* Paleta de Cores */
+        :root {
+            --primary-blue: #1a2980;
+            --secondary-blue: #26d0ce;
+            --primary-yellow: #FFD700;
+            --secondary-yellow: #FFED4A;
+            --dark-yellow: #E6C300;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --dark-text: #333333;
+            --light-text: #666666;
+        }
+        
         /* Header */
         header {
-            background: linear-gradient(135deg, #1a2980, #26d0ce);
-            color: white;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--white);
             padding: 15px 0;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
             position: sticky;
@@ -58,7 +71,7 @@
         
         .logo i {
             font-size: 2rem;
-            color: #FFD700;
+            color: var(--primary-yellow);
         }
         
         .logo h1 {
@@ -68,7 +81,7 @@
         }
         
         .logo span {
-            color: #FFD700;
+            color: var(--primary-yellow);
         }
         
         nav ul {
@@ -78,7 +91,7 @@
         }
         
         nav a {
-            color: white;
+            color: var(--white);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
@@ -89,53 +102,50 @@
         }
         
         nav a:hover {
-            color: #FFD700;
-        }
-        
-        .header-buttons {
-            display: flex;
-            gap: 10px;
+            color: var(--primary-yellow);
         }
         
         .btn {
-            padding: 8px 20px;
+            padding: 10px 25px;
             border-radius: 4px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
             border: none;
             font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
         }
         
         .btn-primary {
-            background-color: #FFD700;
-            color: #1a2980;
+            background-color: var(--primary-yellow);
+            color: var(--primary-blue);
         }
         
         .btn-primary:hover {
-            background-color: #ffed4e;
+            background-color: var(--secondary-yellow);
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
         }
         
         .btn-secondary {
             background-color: transparent;
-            color: white;
-            border: 2px solid white;
+            color: var(--white);
+            border: 2px solid var(--white);
         }
         
         .btn-secondary:hover {
-            background-color: white;
-            color: #1a2980;
+            background-color: var(--white);
+            color: var(--primary-blue);
         }
         
-        /* Slideshow */
+        /* Slideshow Contínuo */
         .slideshow-container {
             position: relative;
             max-width: 100%;
             margin: 0 auto;
             overflow: hidden;
             height: 400px;
-            background-color: #1a2980;
+            background-color: var(--primary-blue);
             border-radius: 0 0 10px 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
@@ -144,7 +154,7 @@
             display: flex;
             width: 400%;
             height: 100%;
-            animation: slide 20s infinite;
+            animation: slide 40s infinite linear;
         }
         
         .slide {
@@ -154,7 +164,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--white);
         }
         
         .slide-content {
@@ -205,16 +215,20 @@
         }
         
         @keyframes slide {
-            0%, 20% { transform: translateX(0); }
-            25%, 45% { transform: translateX(-25%); }
-            50%, 70% { transform: translateX(-50%); }
-            75%, 95% { transform: translateX(-75%); }
+            0% { transform: translateX(0); }
+            24% { transform: translateX(0); }
+            25% { transform: translateX(-25%); }
+            49% { transform: translateX(-25%); }
+            50% { transform: translateX(-50%); }
+            74% { transform: translateX(-50%); }
+            75% { transform: translateX(-75%); }
+            99% { transform: translateX(-75%); }
             100% { transform: translateX(0); }
         }
         
         /* Filtros */
         .filters-container {
-            background-color: white;
+            background-color: var(--white);
             padding: 25px;
             margin: 30px auto;
             border-radius: 10px;
@@ -222,7 +236,7 @@
         }
         
         .filters-container h2 {
-            color: #1a2980;
+            color: var(--primary-blue);
             margin-bottom: 20px;
             font-size: 1.5rem;
             display: flex;
@@ -245,7 +259,7 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            color: #555;
+            color: var(--light-text);
         }
         
         .filter-group select, .filter-group input {
@@ -259,19 +273,19 @@
         
         .filter-group select:focus, .filter-group input:focus {
             outline: none;
-            border-color: #26d0ce;
+            border-color: var(--secondary-blue);
         }
         
         .btn-filter {
-            background-color: #1a2980;
-            color: white;
+            background-color: var(--primary-blue);
+            color: var(--white);
             border: none;
             align-self: flex-end;
             padding: 12px 30px;
         }
         
         .btn-filter:hover {
-            background-color: #2638a0;
+            background-color: var(--secondary-blue);
         }
         
         /* Leilões */
@@ -287,14 +301,14 @@
         }
         
         .auctions-header h2 {
-            color: #1a2980;
+            color: var(--primary-blue);
             font-size: 1.8rem;
         }
         
         .auction-count {
-            background-color: #26d0ce;
-            color: white;
-            padding: 5px 15px;
+            background-color: var(--secondary-blue);
+            color: var(--white);
+            padding: 8px 20px;
             border-radius: 20px;
             font-weight: 600;
         }
@@ -306,11 +320,12 @@
         }
         
         .auction-card {
-            background-color: white;
+            background-color: var(--white);
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--primary-yellow);
         }
         
         .auction-card:hover {
@@ -330,8 +345,8 @@
             top: 15px;
             left: 15px;
             background-color: rgba(26, 41, 128, 0.9);
-            color: white;
-            padding: 5px 15px;
+            color: var(--white);
+            padding: 8px 15px;
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 600;
@@ -344,7 +359,7 @@
         .auction-title {
             font-size: 1.2rem;
             margin-bottom: 10px;
-            color: #1a2980;
+            color: var(--primary-blue);
         }
         
         .auction-details {
@@ -353,7 +368,7 @@
             gap: 8px;
             margin-bottom: 15px;
             font-size: 0.9rem;
-            color: #666;
+            color: var(--light-text);
         }
         
         .auction-detail {
@@ -363,7 +378,7 @@
         }
         
         .auction-detail i {
-            color: #26d0ce;
+            color: var(--secondary-blue);
             width: 20px;
         }
         
@@ -377,23 +392,121 @@
         
         .auction-time-remaining {
             background-color: #fff8e1;
-            padding: 5px 10px;
+            padding: 8px 15px;
             border-radius: 5px;
             font-weight: 600;
-            color: #ff9800;
+            color: var(--dark-yellow);
             font-size: 0.85rem;
         }
         
         .auction-price {
             font-size: 1.3rem;
             font-weight: 700;
-            color: #1a2980;
+            color: var(--primary-blue);
+        }
+        
+        /* Seção de Cadastro de Produtos */
+        .register-section {
+            margin: 60px auto;
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .register-section h2 {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .register-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-blue);
+            color: var(--primary-yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.5rem;
+        }
+        
+        .step h3 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+        
+        .step p {
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+        
+        /* Tabela de Taxas */
+        .fees-table {
+            margin-top: 40px;
+        }
+        
+        .fees-table h3 {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        th {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 15px;
+            text-align: left;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        
+        .highlight-cell {
+            background-color: #fff8e1;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+        
+        .register-cta {
+            text-align: center;
+            margin-top: 30px;
         }
         
         /* Footer */
         footer {
-            background-color: #1a2980;
-            color: white;
+            background-color: var(--primary-blue);
+            color: var(--white);
             padding: 50px 0 20px;
             margin-top: 60px;
         }
@@ -408,7 +521,7 @@
         .footer-section h3 {
             font-size: 1.3rem;
             margin-bottom: 20px;
-            color: #FFD700;
+            color: var(--primary-yellow);
         }
         
         .footer-section p {
@@ -425,7 +538,7 @@
         }
         
         .footer-links a {
-            color: white;
+            color: var(--white);
             text-decoration: none;
             opacity: 0.9;
             transition: opacity 0.3s;
@@ -433,7 +546,7 @@
         
         .footer-links a:hover {
             opacity: 1;
-            color: #FFD700;
+            color: var(--primary-yellow);
         }
         
         .social-icons {
@@ -450,14 +563,14 @@
             height: 40px;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            color: white;
+            color: var(--white);
             font-size: 1.2rem;
             transition: all 0.3s;
         }
         
         .social-icons a:hover {
-            background-color: #FFD700;
-            color: #1a2980;
+            background-color: var(--primary-yellow);
+            color: var(--primary-blue);
             transform: translateY(-3px);
         }
         
@@ -501,6 +614,14 @@
             .filters {
                 flex-direction: column;
             }
+            
+            .register-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .register-section {
+                padding: 25px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -523,6 +644,14 @@
             .logo h1 {
                 font-size: 1.5rem;
             }
+            
+            table {
+                font-size: 0.85rem;
+            }
+            
+            th, td {
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -538,17 +667,12 @@
             <nav>
                 <ul>
                     <li><a href="#"><i class="fas fa-home"></i> Início</a></li>
-                    <li><a href="#"><i class="fas fa-gavel"></i> Leilões</a></li>
-                    <li><a href="#"><i class="fas fa-info-circle"></i> Como Funciona</a></li>
-                    <li><a href="#"><i class="fas fa-dollar-sign"></i> Vender</a></li>
-                    <li><a href="#"><i class="fas fa-phone-alt"></i> Contato</a></li>
+                    <li><a href="#leiloes"><i class="fas fa-gavel"></i> Leilões</a></li>
+                    <li><a href="#como-funciona"><i class="fas fa-info-circle"></i> Como Funciona</a></li>
+                    <li><a href="#cadastrar"><i class="fas fa-dollar-sign"></i> Vender</a></li>
+                    <li><a href="#contato"><i class="fas fa-phone-alt"></i> Contato</a></li>
                 </ul>
             </nav>
-            
-            <div class="header-buttons">
-                <button class="btn btn-primary">Entrar</button>
-                <button class="btn btn-secondary">Cadastrar</button>
-            </div>
         </div>
     </header>
 
@@ -648,7 +772,7 @@
         </div>
 
         <!-- Leilões -->
-        <div class="auctions-container">
+        <div class="auctions-container" id="leiloes">
             <div class="auctions-header">
                 <h2>Leilões em Destaque</h2>
                 <div class="auction-count">12 Leilões Ativos</div>
@@ -658,10 +782,101 @@
                 <!-- Os leilões serão inseridos aqui via JavaScript -->
             </div>
         </div>
+        
+        <!-- Seção de Cadastro de Produtos -->
+        <div class="register-section" id="cadastrar">
+            <h2>Como Cadastrar seu Produto para Leilão</h2>
+            
+            <div class="register-steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>Cadastro do Produto</h3>
+                    <p>Preencha o formulário com informações detalhadas sobre seu produto, incluindo fotos de qualidade.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3>Avaliação do Valor Venal</h3>
+                    <p>Nossa equipe avalia o produto e define o valor venal com base em mercado e estado de conservação.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Pagamento da Taxa</h3>
+                    <p>Pague a taxa de cadastro conforme tabela abaixo. A taxa garante a divulgação em nossos canais.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>Leilão Online</h3>
+                    <p>Seu produto entra em leilão por 7 dias. Você pode acompanhar os lances em tempo real.</p>
+                </div>
+            </div>
+            
+            <div class="fees-table">
+                <h3>Taxas de Cadastro por Valor Venal do Produto</h3>
+                <p style="text-align: center; margin-bottom: 20px; color: var(--light-text);">A taxa de cadastro é única e não reembolsável, independente do resultado do leilão.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Faixa de Valor Venal</th>
+                            <th>Taxa de Cadastro</th>
+                            <th>Comissão sobre Venda</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Até R$ 1.000</td>
+                            <td class="highlight-cell">R$ 50,00</td>
+                            <td>8%</td>
+                        </tr>
+                        <tr>
+                            <td>De R$ 1.001 a R$ 5.000</td>
+                            <td class="highlight-cell">R$ 100,00</td>
+                            <td>7%</td>
+                        </tr>
+                        <tr>
+                            <td>De R$ 5.001 a R$ 20.000</td>
+                            <td class="highlight-cell">R$ 200,00</td>
+                            <td>6%</td>
+                        </tr>
+                        <tr>
+                            <td>De R$ 20.001 a R$ 50.000</td>
+                            <td class="highlight-cell">R$ 350,00</td>
+                            <td>5%</td>
+                        </tr>
+                        <tr>
+                            <td>De R$ 50.001 a R$ 100.000</td>
+                            <td class="highlight-cell">R$ 500,00</td>
+                            <td>4%</td>
+                        </tr>
+                        <tr>
+                            <td>Acima de R$ 100.000</td>
+                            <td class="highlight-cell">R$ 750,00</td>
+                            <td>3%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="register-cta">
+                    <p style="margin-bottom: 20px; color: var(--light-text);">Para cadastrar seu produto, entre em contato conosco pelos canais abaixo ou visite nossa central de atendimento.</p>
+                    <button class="btn btn-primary">Entre em Contato para Cadastrar</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Footer -->
-    <footer>
+    <footer id="contato">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -675,11 +890,11 @@
                     </div>
                 </div>
                 
-                <div class="footer-section">
+                <div class="footer-section" id="como-funciona">
                     <h3>Links Rápidos</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Como Funciona</a></li>
-                        <li><a href="#">Taxas e Comissões</a></li>
+                        <li><a href="#como-funciona">Como Funciona</a></li>
+                        <li><a href="#cadastrar">Taxas e Comissões</a></li>
                         <li><a href="#">Perguntas Frequentes</a></li>
                         <li><a href="#">Política de Privacidade</a></li>
                         <li><a href="#">Termos de Uso</a></li>
@@ -714,7 +929,7 @@
                 time: "14:00",
                 endDate: "2023-12-15",
                 endTime: "16:00",
-                currentPrice: 68.500,
+                currentPrice: 68500,
                 image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
                 description: "Honda Civic EXL 2018, branco, completo, único dono"
             },
@@ -728,7 +943,7 @@
                 time: "10:30",
                 endDate: "2023-12-14",
                 endTime: "12:30",
-                currentPrice: 5.200,
+                currentPrice: 5200,
                 image: "https://images.unsplash.com/photo-1678911820848-5b5a4c8aade5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
                 description: "iPhone 14 Pro Max 256GB, roxo, em perfeito estado"
             },
@@ -742,7 +957,7 @@
                 time: "09:00",
                 endDate: "2023-12-16",
                 endTime: "11:00",
-                currentPrice: 1.200,
+                currentPrice: 1200,
                 image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
                 description: "Sofá 3 lugares em couro sintético, cor cinza"
             },
@@ -756,7 +971,7 @@
                 time: "15:00",
                 endDate: "2023-12-13",
                 endTime: "17:00",
-                currentPrice: 3.800,
+                currentPrice: 3800,
                 image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
                 description: "Notebook Gamer Dell G15, RTX 3050, 16GB RAM"
             },
@@ -770,7 +985,7 @@
                 time: "11:00",
                 endDate: "2023-12-17",
                 endTime: "13:00",
-                currentPrice: 89.900,
+                currentPrice: 89900,
                 image: "https://images.unsplash.com/photo-1550355291-bbee04a92027?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
                 description: "Fiat Toro Freedom 2020, diesel, 4x4, completo"
             },
@@ -798,7 +1013,7 @@
                 time: "16:00",
                 endDate: "2023-12-18",
                 endTime: "18:00",
-                currentPrice: 3.500,
+                currentPrice: 3500,
                 image: "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
                 description: "PlayStation 5 com 2 controles e 3 jogos"
             },
@@ -812,7 +1027,7 @@
                 time: "10:00",
                 endDate: "2023-12-19",
                 endTime: "12:00",
-                currentPrice: 2.100,
+                currentPrice: 2100,
                 image: "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
                 description: "Geladeira Brastemp Frost Free, 375L, inox"
             }
@@ -835,10 +1050,15 @@
             }
             
             const diff = endDateTime - now;
-            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             
-            return `${hours}h ${minutes}m`;
+            if (days > 0) {
+                return `${days}d ${hours}h`;
+            } else {
+                return `${hours}h ${minutes}m`;
+            }
         }
 
         // Função para formatar preço
@@ -955,27 +1175,29 @@
             document.getElementById('category').addEventListener('change', filterAuctions);
             document.getElementById('date').addEventListener('change', filterAuctions);
             
-            // Adicionar eventos aos botões do header
+            // Adicionar eventos aos botões
             document.querySelectorAll('.btn-primary').forEach(button => {
                 button.addEventListener('click', function() {
-                    alert('Funcionalidade em desenvolvimento! Em breve você poderá acessar esta área.');
-                });
-            });
-            
-            // Adicionar evento aos botões do slideshow
-            document.querySelectorAll('.slide .btn-primary').forEach((button, index) => {
-                button.addEventListener('click', function() {
-                    const categories = ['carros', 'eletronicos', 'moveis', ''];
-                    const category = categories[index];
-                    
-                    if (category) {
-                        document.getElementById('category').value = category;
-                        filterAuctions();
-                        
-                        // Rolar até os leilões
-                        document.querySelector('.auctions-container').scrollIntoView({
+                    // Para o botão de contato na seção de cadastro
+                    if (this.textContent.includes('Contato')) {
+                        document.querySelector('footer').scrollIntoView({
                             behavior: 'smooth'
                         });
+                    } else {
+                        // Para outros botões
+                        const slideIndex = Array.from(this.closest('.slide-content').parentNode.parentNode.children).indexOf(this.closest('.slide'));
+                        const categories = ['carros', 'eletronicos', 'moveis', ''];
+                        const category = categories[slideIndex];
+                        
+                        if (category) {
+                            document.getElementById('category').value = category;
+                            filterAuctions();
+                            
+                            // Rolar até os leilões
+                            document.querySelector('.auctions-container').scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
                     }
                 });
             });
@@ -990,35 +1212,23 @@
                     }
                 });
             }, 60000); // Atualizar a cada minuto
-        });
-
-        // Efeito de digitação no slideshow (opcional)
-        document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.slide-content h2');
-            slides.forEach(slide => {
-                const text = slide.textContent;
-                slide.textContent = '';
-                
-                let i = 0;
-                function typeWriter() {
-                    if (i < text.length) {
-                        slide.textContent += text.charAt(i);
-                        i++;
-                        setTimeout(typeWriter, 50);
+            
+            // Suavizar rolagem para âncoras
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
                     }
-                }
-                
-                // Iniciar animação quando o slide estiver visível
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            typeWriter();
-                            observer.unobserve(entry.target);
-                        }
-                    });
                 });
-                
-                observer.observe(slide);
             });
         });
     </script>
